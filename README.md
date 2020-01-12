@@ -1,6 +1,6 @@
 # Linux Rootkit
 
-## dmfr description
+## Description
 
 i straight up jacked this rootkit and modified it because i didnt want
 to do it from scratch. this copies sys_call_table[], and compares the running
@@ -8,22 +8,10 @@ copy of sys_call_table[] with our copy after modules are loaded. if these
 differ, someone probably hooked a syscall. If this happens, replace it with our
 "known good" pointers.
 
-## Description
-
-This project is a Linux Kernel Module (LKM) Rootkit for educational purposes. For a 
-complete introduction, see the talk presented at Toorcamp 2018 or Thotcon 2019. This 
-rootkit is deliberately simplified to teach the basics of rootkit development. It 
-demonstrates the following subversive techniques: 
-
- * Starts a kernel thread which executes a userland process as root periodically
- * Dynamically finds the runtime address of the syscall table using kallsyms
- * Demonstrates writing to read-only pages of memory using CR0 and PTE methods
- * Hijacks the execve system call
- * Hides from procfs and sysfs and lsmod
 
 ## Presentation
 
-This is the code associated with the presentation from the *Toorcamp 2018* and *Thotcon 2019*.
+This is _based off of _the code associated with the presentation from the *Toorcamp 2018* and *Thotcon 2019*.
 
  * [Thotcon 2019 Slides](https://github.com/rootfoo/pub/blob/master/Developing%20a%20Linux%20Rootkit%20-%20Thotcon%20-%202019-05-03.pdf)
 
@@ -36,9 +24,9 @@ shell commands to see execve being hijacked in real time.
 
 ```
 make
-sudo insmod rootkit.ko
+sudo insmod syscallslol.ko
 lsmod
-sudo rmmod rootkit.ko
+sudo rmmod syscallslol.ko
 ```
 
 ## Status
